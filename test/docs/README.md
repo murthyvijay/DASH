@@ -9,6 +9,6 @@
 | [SAI PTF User Guide](https://github.com/opencomputeproject/SAI/blob/master/ptf/SAI_PTF_user-guide.md) | SAI Thrift Server User Guide to autogenerate test frame work. |
 | [DASH P4 SAI-Thrift Test Workflow](dash-test-workflow-p4-saithrift.md) | Use of P4-based simulators or SW data planes to verify DASH behavior, using saithrift API. |
 | [Testbed](testbed/README.md) | Describes the setup and configuration of a DASH testbed.|  
-
-
+| [Testplans](testplans/README.md) |  Home of DASH features test plans including test plan template |
+| [DASH Test framework](dash-test-framework.md) |  DASH test framework to address the challenge of writing scaled tests to determine the limits of physical and virtual DASH implementations |
 You can start with the [High-Level Description (HLD) Test Specification](dash-test-HLD.md). 
