@@ -50,6 +50,7 @@ class TestSaiVnetOutboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_outbound_routing_entry_get(self, dpu):
 
         commands = [
@@ -65,6 +66,7 @@ class TestSaiVnetOutboundRoutingEntry:
 
         assert (result[0].value() == "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET")
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_outbound_routing_entry_set(self, dpu):
 
         commands = [
@@ -87,6 +89,7 @@ class TestSaiVnetOutboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_outbound_routing_entry_get(self, dpu):
 
         commands = [

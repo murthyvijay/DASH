@@ -27,6 +27,7 @@ class TestSaiVnetAclIn:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_acl_in_get1(self, dpu):
 
         commands = [
@@ -42,6 +43,8 @@ class TestSaiVnetAclIn:
 
         assert (result[0].value() == "SAI_IP_ADDR_FAMILY_IPV4")
 
+    
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_acl_in_set(self, dpu):
 
         commands = [
@@ -59,6 +62,7 @@ class TestSaiVnetAclIn:
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_acl_in_get2(self, dpu):
 
         commands = [

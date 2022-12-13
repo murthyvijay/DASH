@@ -30,6 +30,7 @@ class TestSaiVnetInbound:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_simple_get1(self, dpu):
 
         commands = [
@@ -46,6 +47,7 @@ class TestSaiVnetInbound:
 
         assert (result[0].value() == "SAI_VIP_ENTRY_ACTION_ACCEPT")
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_simple_set(self, dpu):
 
         commands = [
@@ -66,6 +68,7 @@ class TestSaiVnetInbound:
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_simple_get2(self, dpu):
 
         commands = [

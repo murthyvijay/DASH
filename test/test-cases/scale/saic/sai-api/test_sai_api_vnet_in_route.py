@@ -38,6 +38,7 @@ class TestSaiVnetInboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_routing_entry_get1(self, dpu):
 
         commands = [
@@ -54,6 +55,7 @@ class TestSaiVnetInboundRoutingEntry:
 
         assert (result[0].value() == "SAI_INBOUND_ROUTING_ENTRY_ACTION_VXLAN_DECAP_PA_VALIDATE")
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_routing_entry_set(self, dpu):
 
         commands = [
@@ -79,6 +81,7 @@ class TestSaiVnetInboundRoutingEntry:
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_routing_entry_get2(self, dpu):
 
         commands = [

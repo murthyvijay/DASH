@@ -27,6 +27,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_vni_get1(self, dpu):
 
         commands = [
@@ -44,6 +45,7 @@ class TestSaiVnetVni:
 
         assert (result[1].value() == "2000")
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_vni_set(self, dpu):
 
         commands = [
@@ -62,6 +64,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_vni_get2(self, dpu):
 
         commands = [

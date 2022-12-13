@@ -31,6 +31,7 @@ class TestSaiDirectionLookup:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_direction_lookup_get1(self, dpu):
 
         commands = [
@@ -46,6 +47,7 @@ class TestSaiDirectionLookup:
 
         assert (result[0].value() == "2000")
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_direction_lookup_set(self, dpu):
 
         commands = [
@@ -68,6 +70,7 @@ class TestSaiDirectionLookup:
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_direction_lookup_get2(self, dpu):
 
         commands = [

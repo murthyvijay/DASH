@@ -131,6 +131,7 @@ class TestSaiVnetEni:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_get1(self, dpu):
 
         commands = [
@@ -147,6 +148,7 @@ class TestSaiVnetEni:
 
         assert (result[0].value() == "10.10.2.10")
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_set(self, dpu):
 
         commands = [
@@ -165,6 +167,7 @@ class TestSaiVnetEni:
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_get2(self, dpu):
 
         commands = [

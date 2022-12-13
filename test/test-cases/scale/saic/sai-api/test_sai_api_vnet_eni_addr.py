@@ -32,6 +32,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_ether_address_get1(self, dpu):
 
         commands = [
@@ -47,6 +48,7 @@ class TestSaiVnetVni:
 
         assert (result[0].value() == "eni_id")
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_ether_address_set(self, dpu):
 
         commands = [
@@ -68,6 +70,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
 
+    @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_ether_address_get2(self, dpu):
 
         commands = [
