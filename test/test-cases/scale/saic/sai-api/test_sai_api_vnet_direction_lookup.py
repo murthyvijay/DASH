@@ -4,21 +4,9 @@ from pathlib import Path
 from pprint import pprint
 
 import pytest
-import saichallenger.dataplane.snappi.snappi_traffic_utils as stu
-from saichallenger.dataplane.ptf_testutils import (send_packet,
-                                                   simple_udp_packet,
-                                                   simple_vxlan_packet,
-                                                   verify_no_other_packets,
-                                                   verify_packet)
-
-import dash_helper.vnet2vnet_helper as dh
-
-current_file_dir = Path(__file__).parent
 
 # Constants
 SWITCH_ID = 5
-
-
 
 class TestSaiDirectionLookup:
 
@@ -56,8 +44,7 @@ class TestSaiDirectionLookup:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        # TODO:add value get assert
-        # Assert if result[value1]  == "2000"
+        assert (result[0].value() == "2000")
 
     def test_direction_lookup_set(self, dpu):
 
@@ -94,8 +81,7 @@ class TestSaiDirectionLookup:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        # TODO:add value get assert
-        # Assert if result.value1 == "4000"
+        assert (result[0].value() == "4000")
 
     def test_direction_lookup_remove(self, dpu):
 

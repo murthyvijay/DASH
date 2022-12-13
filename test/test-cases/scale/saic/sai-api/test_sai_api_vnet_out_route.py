@@ -1,25 +1,13 @@
-import dash_helper.vnet2vnet_helper as dh
-from saichallenger.dataplane.ptf_testutils import (send_packet,
-                                                   simple_udp_packet,
-                                                   simple_vxlan_packet,
-                                                   verify_no_other_packets,
-                                                   verify_packet)
-import saichallenger.dataplane.snappi.snappi_traffic_utils as stu
-import pytest
-from pprint import pprint
-from pathlib import Path
-import time
 import json
+import time
+from pathlib import Path
+from pprint import pprint
 
-
-current_file_dir = Path(__file__).parent
+import pytest
 
 # Constants
-# SWITCH_ID = 5
-# ENI_ID = 1
-
-
-
+SWITCH_ID = 5
+ENI_ID = 1
 
 class TestSaiVnetOutboundRoutingEntry:
 
@@ -75,6 +63,8 @@ class TestSaiVnetOutboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+        assert (result[0].value() == "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET")
+
     def test_vnet_outbound_routing_entry_set(self, dpu):
 
         commands = [
@@ -110,6 +100,8 @@ class TestSaiVnetOutboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+        assert (result[0].value() == "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET")
+        
     def test_vnet_outbound_routing_entry_remove(self, dpu):
 
         commands = [

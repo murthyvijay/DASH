@@ -4,20 +4,9 @@ from pathlib import Path
 from pprint import pprint
 
 import pytest
-import saichallenger.dataplane.snappi.snappi_traffic_utils as stu
-from saichallenger.dataplane.ptf_testutils import (send_packet,
-                                                   simple_udp_packet,
-                                                   simple_vxlan_packet,
-                                                   verify_no_other_packets,
-                                                   verify_packet)
-
-import dash_helper.vnet2vnet_helper as dh
-
-current_file_dir = Path(__file__).parent
 
 # Constants
 SWITCH_ID = 5
-
 
 class TestSaiVnetInbound:
 
@@ -55,7 +44,7 @@ class TestSaiVnetInbound:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value(), "SAI_VIP_ENTRY_ACTION_ACCEPT")
+        assert (result[0].value() == "SAI_VIP_ENTRY_ACTION_ACCEPT")
 
     def test_vnet_inbound_simple_set(self, dpu):
 
@@ -91,7 +80,7 @@ class TestSaiVnetInbound:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value(), "SAI_VIP_ENTRY_ACTION_REJECT")
+        assert (result[0].value() == "SAI_VIP_ENTRY_ACTION_REJECT")
 
     def test_vnet_inbound_simple_remove(self, dpu):
 

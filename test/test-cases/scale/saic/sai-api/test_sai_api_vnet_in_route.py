@@ -4,21 +4,10 @@ from pathlib import Path
 from pprint import pprint
 
 import pytest
-import saichallenger.dataplane.snappi.snappi_traffic_utils as stu
-from saichallenger.dataplane.ptf_testutils import (send_packet,
-                                                   simple_udp_packet,
-                                                   simple_vxlan_packet,
-                                                   verify_no_other_packets,
-                                                   verify_packet)
-
-import dash_helper.vnet2vnet_helper as dh
-
-current_file_dir = Path(__file__).parent
 
 # Constants
 SWITCH_ID = 5
 eni_id = 1
-
 
 class TestSaiVnetInboundRoutingEntry:
 
@@ -49,7 +38,6 @@ class TestSaiVnetInboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
-    # TODO: Expand verification for get and set for all attributes
     def test_vnet_inbound_routing_entry_get1(self, dpu):
 
         commands = [
@@ -64,10 +52,8 @@ class TestSaiVnetInboundRoutingEntry:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value(),
-                "SAI_INBOUND_ROUTING_ENTRY_ACTION_VXLAN_DECAP_PA_VALIDATE")
+        assert (result[0].value() == "SAI_INBOUND_ROUTING_ENTRY_ACTION_VXLAN_DECAP_PA_VALIDATE")
 
-    # TODO: figure out all supported values for set attributes
     def test_vnet_inbound_routing_entry_set(self, dpu):
 
         commands = [
@@ -93,7 +79,6 @@ class TestSaiVnetInboundRoutingEntry:
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
 
-    # TODO: Expand verification for get and set for all attributes
     def test_vnet_inbound_routing_entry_get2(self, dpu):
 
         commands = [
@@ -108,8 +93,7 @@ class TestSaiVnetInboundRoutingEntry:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value(),
-                "SAI_INBOUND_ROUTING_ENTRY_ACTION_VXLAN_DECAP_CA_VALIDATE")
+        assert (result[0].value() == "SAI_INBOUND_ROUTING_ENTRY_ACTION_VXLAN_DECAP_CA_VALIDATE")
 
     def test_vnet_inbound_routing_entry_remove(self, dpu):
 

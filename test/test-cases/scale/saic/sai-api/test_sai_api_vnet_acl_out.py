@@ -4,20 +4,9 @@ from pathlib import Path
 from pprint import pprint
 
 import pytest
-import saichallenger.dataplane.snappi.snappi_traffic_utils as stu
-from saichallenger.dataplane.ptf_testutils import (send_packet,
-                                                   simple_udp_packet,
-                                                   simple_vxlan_packet,
-                                                   verify_no_other_packets,
-                                                   verify_packet)
-
-import dash_helper.vnet2vnet_helper as dh
-
-current_file_dir = Path(__file__).parent
 
 # Constants
 SWITCH_ID = 5
-
 
 class TestSaiVnetAclOut:
 
@@ -51,7 +40,7 @@ class TestSaiVnetAclOut:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value(), "SAI_IP_ADDR_FAMILY_IPV4")
+        assert (result[0].value() == "SAI_IP_ADDR_FAMILY_IPV4")
 
     def test_vnet_acl_out_set(self, dpu):
 
@@ -83,7 +72,7 @@ class TestSaiVnetAclOut:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value(), "SAI_IP_ADDR_FAMILY_IPV4")
+        assert (result[0].value() == "SAI_IP_ADDR_FAMILY_IPV4")
 
     def test_vnet_acl_out_remove(self, dpu):
 

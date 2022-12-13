@@ -4,22 +4,11 @@ from pathlib import Path
 from pprint import pprint
 
 import pytest
-import saichallenger.dataplane.snappi.snappi_traffic_utils as stu
-from saichallenger.dataplane.ptf_testutils import (send_packet,
-                                                   simple_udp_packet,
-                                                   simple_vxlan_packet,
-                                                   verify_no_other_packets,
-                                                   verify_packet)
-
-import dash_helper.vnet2vnet_helper as dh
-
-current_file_dir = Path(__file__).parent
 
 # Constants
 SWITCH_ID = 5
 eni_id = 1
 vnet_1 = 1
-
 
 class TestSaiVnetVni:
 
@@ -59,9 +48,8 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value(), "SAI_PA_VALIDATION_ENTRY_ACTION_PERMIT")
+        assert (result[0].value() == "SAI_PA_VALIDATION_ENTRY_ACTION_PERMIT")
 
-    # TODO: figure out all supported values for set attributes
     def test_vnet_pa_validation_entry_set(self, dpu):
 
         commands = [
@@ -98,7 +86,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value(), "SAI_PA_VALIDATION_ENTRY_ACTION_DENY")
+        assert (result[0].value() == "SAI_PA_VALIDATION_ENTRY_ACTION_DENY")
 
     def test_vnet_pa_validation_entry_remove(self, dpu):
 
