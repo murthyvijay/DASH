@@ -8,5 +8,3 @@ __pycache__/
 dash-pipeline/bmv2/dash_pipeline.bmv2/
 dash-pipeline/SAI/lib/
 dash-pipeline/SAI/rpc/
-dash-pipeline/SAI/SAI
-test/SAI-Challenger
