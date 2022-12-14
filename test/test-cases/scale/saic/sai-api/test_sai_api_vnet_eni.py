@@ -8,58 +8,7 @@ import pytest
 
 class TestSaiVnetEni:
 
-    def test_vnet_vni_create(self, dpu):
-
-        commands = [
-            {
-                "name": "vnet",
-                "op": "create",
-                "type": "SAI_OBJECT_TYPE_VNET",
-                "attributes": [
-                    "SAI_VNET_ATTR_VNI",
-                    "2000"
-                ]
-            },
-        ]
-        result = [*dpu.process_commands(commands)]
-        print("\n======= SAI commands RETURN values create =======")
-        pprint(result)
-
-    def test_vnet_acl_in_create(self, dpu):
-
-        commands = [
-            {
-                "name": "acl_in",
-                "op": "create",
-                "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP",
-                "attributes": [
-                    "SAI_DASH_ACL_GROUP_ATTR_IP_ADDR_FAMILY",
-                    "SAI_IP_ADDR_FAMILY_IPV4"
-                ]
-            },
-        ]
-        result = [*dpu.process_commands(commands)]
-        print("\n======= SAI commands RETURN values create =======")
-        pprint(result)
-
-    def test_vnet_acl_out_create(self, dpu):
-
-        commands = [
-            {
-                "name": "acl_out",
-                "op": "create",
-                "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP",
-                "attributes": [
-                    "SAI_DASH_ACL_GROUP_ATTR_IP_ADDR_FAMILY",
-                    "SAI_IP_ADDR_FAMILY_IPV4"
-                ]
-            },
-        ]
-        result = [*dpu.process_commands(commands)]
-        print("\n======= SAI commands RETURN values create =======")
-        pprint(result)
-
-    @pytest.mark.dependency(scope='session')
+    @pytest.mark.dependency(depends=['test_sai_api_vnet_vni.py::test_vnet_vni_create'], scope='session')
     def test_vnet_eni_create(self, dpu):
 
         commands = [
@@ -83,25 +32,25 @@ class TestSaiVnetEni:
                     "SAI_ENI_ATTR_VNET_ID",
                     "$vnet",
                     "SAI_ENI_ATTR_INBOUND_V4_STAGE1_DASH_ACL_GROUP_ID",
-                    "$acl_in",
+                    "0",
                     "SAI_ENI_ATTR_INBOUND_V4_STAGE2_DASH_ACL_GROUP_ID",
-                    "$acl_in",
+                    "0",
                     "SAI_ENI_ATTR_INBOUND_V4_STAGE3_DASH_ACL_GROUP_ID",
-                    "$acl_in",
+                    "0",
                     "SAI_ENI_ATTR_INBOUND_V4_STAGE4_DASH_ACL_GROUP_ID",
-                    "$acl_in",
+                    "0",
                     "SAI_ENI_ATTR_INBOUND_V4_STAGE5_DASH_ACL_GROUP_ID",
-                    "$acl_in",
+                    "0",
                     "SAI_ENI_ATTR_INBOUND_V6_STAGE1_DASH_ACL_GROUP_ID",
-                    "$acl_out",
+                    "0",
                     "SAI_ENI_ATTR_INBOUND_V6_STAGE2_DASH_ACL_GROUP_ID",
-                    "$acl_out",
+                    "0",
                     "SAI_ENI_ATTR_INBOUND_V6_STAGE3_DASH_ACL_GROUP_ID",
-                    "$acl_out",
+                    "0",
                     "SAI_ENI_ATTR_INBOUND_V6_STAGE4_DASH_ACL_GROUP_ID",
-                    "$acl_out",
+                    "0",
                     "SAI_ENI_ATTR_INBOUND_V6_STAGE5_DASH_ACL_GROUP_ID",
-                    "$acl_out",
+                    "0",
                     "SAI_ENI_ATTR_OUTBOUND_V4_STAGE1_DASH_ACL_GROUP_ID",
                     "0",
                     "SAI_ENI_ATTR_OUTBOUND_V4_STAGE2_DASH_ACL_GROUP_ID",

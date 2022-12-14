@@ -11,23 +11,7 @@ SWITCH_ID = 5
 
 class TestSaiVnetOutboundRoutingEntry:
 
-    def test_vnet_vni_create(self, dpu):
-
-        commands = [
-            {
-                "name": "vnet",
-                "op": "create",
-                "type": "SAI_OBJECT_TYPE_VNET",
-                "attributes": [
-                    "SAI_VNET_ATTR_VNI",
-                    "2000"
-                ]
-            },
-        ]
-        result = [*dpu.process_commands(commands)]
-        print("\n======= SAI commands RETURN values create =======")
-        pprint(result)
-
+    @pytest.mark.dependency(depends=['test_sai_api_vnet_vni.py::test_vnet_vni_create'], scope='session')
     def test_vnet_outbound_routing_entry_create(self, dpu):
 
         commands = [
@@ -107,6 +91,7 @@ class TestSaiVnetOutboundRoutingEntry:
         assert (result[0].value() ==
                 "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET")
 
+    @pytest.mark.dependency(depends=['test_vnet_outbound_routing_entry_create'], scope='session')
     def test_vnet_outbound_routing_entry_remove(self, dpu):
 
         commands = [

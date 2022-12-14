@@ -8,6 +8,7 @@ import pytest
 
 class TestSaiVnetVni:
 
+    @pytest.mark.dependency(scope='session')
     def test_vnet_vni_create(self, dpu):
 
         commands = [
@@ -80,6 +81,8 @@ class TestSaiVnetVni:
 
         assert (result[1].value() == "4000")
 
+    @pytest.mark.dependency(depends=['test_sai_api_vnet_eni.py::test_vnet_eni_create'], scope='session')
+    @pytest.mark.dependency(depends=['test_sai_api_vnet_pa_entry.py::test_vnet_pa_validation_entry_create'], scope='session')
     def test_vnet_vni_remove(self, dpu):
 
         commands = [

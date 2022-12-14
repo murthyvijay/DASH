@@ -11,6 +11,7 @@ SWITCH_ID = 5
 
 class TestSaiVnetVni:
 
+    @pytest.mark.dependency(depends=['test_sai_api_vnet_vni.py::test_vnet_vni_create'], scope='session')
     def test_vnet_pa_validation_entry_create(self, dpu):
 
         commands = [
@@ -90,6 +91,7 @@ class TestSaiVnetVni:
 
         assert (result[0].value() == "SAI_PA_VALIDATION_ENTRY_ACTION_DENY")
 
+    @pytest.mark.dependency(depends=['test_vnet_pa_validation_entry_create'], scope='session')
     def test_vnet_pa_validation_entry_remove(self, dpu):
 
         commands = [
