@@ -5,9 +5,6 @@ from pprint import pprint
 
 import pytest
 
-# Constants
-SWITCH_ID = 5
-
 
 class TestSaiVnetAclOut:
 
@@ -82,7 +79,7 @@ class TestSaiVnetAclOut:
 
         commands = [
             {
-                "name": "$acl_out",
+                "name": "acl_out",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP",
                 "attributes": [

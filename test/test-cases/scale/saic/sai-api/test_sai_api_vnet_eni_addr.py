@@ -7,7 +7,7 @@ import pytest
 
 # Constants
 SWITCH_ID = 5
-eni_id = 1
+
 
 class TestSaiVnetVni:
 
@@ -24,7 +24,7 @@ class TestSaiVnetVni:
                 },
                 "attributes": [
                     "SAI_ENI_ETHER_ADDRESS_MAP_ENTRY_ATTR_ENI_ID",
-                    "$eni_id"
+                    "1"
                 ]
             },
         ]

@@ -7,8 +7,7 @@ import pytest
 
 # Constants
 SWITCH_ID = 5
-eni_id = 1
-vnet_1 = 1
+
 
 class TestSaiVnetVni:
 

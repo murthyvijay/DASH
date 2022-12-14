@@ -8,6 +8,7 @@ import pytest
 # Constants
 SWITCH_ID = 5
 
+
 class TestSaiVnetInbound:
 
     def test_vnet_inbound_simple_create(self, dpu):

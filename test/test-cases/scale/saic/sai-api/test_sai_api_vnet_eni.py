@@ -5,9 +5,6 @@ from pprint import pprint
 
 import pytest
 
-# Constants
-SWITCH_ID = 5
-eni_id = 1
 
 class TestSaiVnetEni:
 
@@ -62,6 +59,7 @@ class TestSaiVnetEni:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+    @pytest.mark.dependency(scope='session')
     def test_vnet_eni_create(self, dpu):
 
         commands = [
@@ -185,11 +183,12 @@ class TestSaiVnetEni:
 
         assert (result[0].value() == "20.10.2.10")
 
+    @pytest.mark.dependency(depends=['test_sai_api_vnet_in_route.py::test_vnet_inbound_routing_entry_remove'], scope='session')
     def test_vnet_eni_remove(self, dpu):
 
         commands = [
             {
-                "name": "$eni_id",
+                "name": "eni_id",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_ENI",
             },

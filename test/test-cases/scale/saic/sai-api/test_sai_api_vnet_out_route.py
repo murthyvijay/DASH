@@ -7,7 +7,7 @@ import pytest
 
 # Constants
 SWITCH_ID = 5
-ENI_ID = 1
+
 
 class TestSaiVnetOutboundRoutingEntry:
 
@@ -64,7 +64,8 @@ class TestSaiVnetOutboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
-        assert (result[0].value() == "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET")
+        assert (result[0].value() ==
+                "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET")
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_outbound_routing_entry_set(self, dpu):
@@ -103,8 +104,9 @@ class TestSaiVnetOutboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
-        assert (result[0].value() == "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET")
-        
+        assert (result[0].value() ==
+                "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET")
+
     def test_vnet_outbound_routing_entry_remove(self, dpu):
 
         commands = [

@@ -5,8 +5,6 @@ from pprint import pprint
 
 import pytest
 
-# Constants
-SWITCH_ID = 5
 
 class TestSaiVnetAclIn:
 
@@ -43,7 +41,6 @@ class TestSaiVnetAclIn:
 
         assert (result[0].value() == "SAI_IP_ADDR_FAMILY_IPV4")
 
-    
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_acl_in_set(self, dpu):
 
@@ -82,7 +79,7 @@ class TestSaiVnetAclIn:
 
         commands = [
             {
-                "name": "$acl_in",
+                "name": "acl_in",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP",
                 "attributes": [

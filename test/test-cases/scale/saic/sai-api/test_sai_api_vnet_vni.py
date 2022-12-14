@@ -5,8 +5,6 @@ from pprint import pprint
 
 import pytest
 
-# Constants
-SWITCH_ID = 5
 
 class TestSaiVnetVni:
 
@@ -87,7 +85,6 @@ class TestSaiVnetVni:
         commands = [
             {
                 "name": "vnet",
-                "vnet_oid": "$vnet",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_VNET",
                 "attributes": [

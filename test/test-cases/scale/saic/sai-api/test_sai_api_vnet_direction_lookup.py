@@ -8,24 +8,25 @@ import pytest
 # Constants
 SWITCH_ID = 5
 
+
 class TestSaiDirectionLookup:
 
     def test_direction_lookup_create(self, dpu):
 
         commands = [
-            {   
-            "name": "direction_lookup_entry",
-            "op": "create",
-            "type": "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY",
-            "key": {
-            "switch_id": "$SWITCH_ID",
-            "vni": "2000"
+            {
+                "name": "direction_lookup_entry",
+                "op": "create",
+                "type": "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY",
+                "key": {
+                    "switch_id": "$SWITCH_ID",
+                    "vni": "2000"
+                },
+                "attributes": [
+                    "SAI_DIRECTION_LOOKUP_ENTRY_ATTR_ACTION",
+                    "SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION"
+                ]
             },
-	    "attributes": [
-	      "SAI_DIRECTION_LOOKUP_ENTRY_ATTR_ACTION",
-	      "SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION"
-	    ]
-	    },
         ]
         result = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
@@ -56,14 +57,14 @@ class TestSaiDirectionLookup:
                 "op": "set",
                 "type": "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY",
                 "key": {
-                "switch_id": "$SWITCH_ID",
-                "vni": "4000"
+                    "switch_id": "$SWITCH_ID",
+                    "vni": "4000"
+                },
+                "attributes": [
+                    "SAI_DIRECTION_LOOKUP_ENTRY_ATTR_ACTION",
+                    "SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION"
+                ]
             },
-            "attributes": [
-              "SAI_DIRECTION_LOOKUP_ENTRY_ATTR_ACTION",
-              "SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION"
-            ]
-          },
         ]
 
         result = [*dpu.process_commands(commands)]
@@ -89,19 +90,19 @@ class TestSaiDirectionLookup:
     def test_direction_lookup_remove(self, dpu):
 
         commands = [
-            {   
-            "name": "direction_lookup_entry",
-            "op": "remove",
-            "type": "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY",
-            "key": {
-            "switch_id": "$SWITCH_ID",
-            "vni": "2000"
+            {
+                "name": "direction_lookup_entry",
+                "op": "remove",
+                "type": "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY",
+                "key": {
+                    "switch_id": "$SWITCH_ID",
+                    "vni": "2000"
+                },
+                "attributes": [
+                    "SAI_DIRECTION_LOOKUP_ENTRY_ATTR_ACTION",
+                    "SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION"
+                ]
             },
-            "attributes": [
-            "SAI_DIRECTION_LOOKUP_ENTRY_ATTR_ACTION",
-            "SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION"
-            ]
-	    },
         ]
 
         result = [*dpu.process_commands(commands)]
