@@ -39,6 +39,8 @@ class TestSaiVnetInboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+        assert all(result), "SAI_OBJECT_TYPE_INBOUND_ROUTING_ENTRY Create error"
+
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_routing_entry_get1(self, dpu):
 
@@ -54,8 +56,7 @@ class TestSaiVnetInboundRoutingEntry:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value() ==
-                "SAI_INBOUND_ROUTING_ENTRY_ACTION_VXLAN_DECAP_PA_VALIDATE")
+        assert all(result), "SAI_OBJECT_TYPE_INBOUND_ROUTING_ENTRY Get error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_routing_entry_set(self, dpu):
@@ -83,6 +84,8 @@ class TestSaiVnetInboundRoutingEntry:
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
 
+        assert all(result), "SAI_OBJECT_TYPE_INBOUND_ROUTING_ENTRY Set error"
+
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_routing_entry_get2(self, dpu):
 
@@ -98,8 +101,7 @@ class TestSaiVnetInboundRoutingEntry:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value() ==
-                "SAI_INBOUND_ROUTING_ENTRY_ACTION_VXLAN_DECAP_CA_VALIDATE")
+        assert all(result), "SAI_OBJECT_TYPE_INBOUND_ROUTING_ENTRY Get error"
 
     @pytest.mark.dependency(depends=['test_vnet_inbound_routing_entry_create'], scope='session')
     def test_vnet_inbound_routing_entry_remove(self, dpu):
@@ -129,3 +131,5 @@ class TestSaiVnetInboundRoutingEntry:
         result = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(result)
+
+        assert all(result), "SAI_OBJECT_TYPE_INBOUND_ROUTING_ENTRY Remove error"

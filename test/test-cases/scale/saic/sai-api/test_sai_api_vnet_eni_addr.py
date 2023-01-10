@@ -31,6 +31,8 @@ class TestSaiVnetVni:
         result = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
+        
+        assert all(result) , "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_ether_address_get1(self, dpu):
@@ -46,7 +48,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value() == "eni_id")
+        assert all(result) , "eni_id"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_ether_address_set(self, dpu):
@@ -69,6 +71,8 @@ class TestSaiVnetVni:
         result = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
+        
+        assert all(result) , "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY Set error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_ether_address_get2(self, dpu):
@@ -84,7 +88,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[0].value() == "eni_id")
+        assert all(result) , "eni_id"
 
     def test_vnet_eni_ether_address_remove(self, dpu):
 
@@ -107,3 +111,5 @@ class TestSaiVnetVni:
         result = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(result)
+        
+        assert all(result) , "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY Remove error"

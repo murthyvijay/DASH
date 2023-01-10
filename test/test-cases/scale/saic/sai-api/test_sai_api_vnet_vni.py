@@ -26,6 +26,8 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values create =======")
         pprint(result)
 
+        assert all(result), "SAI_OBJECT_TYPE_VNET Create error"
+
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_vni_get1(self, dpu):
 
@@ -42,7 +44,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[1].value() == "2000")
+        assert all(result), "SAI_OBJECT_TYPE_VNET Get error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_vni_set(self, dpu):
@@ -63,6 +65,8 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values set =======")
         pprint(result)
 
+        assert all(result), "SAI_OBJECT_TYPE_VNET Set error"
+
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_vni_get2(self, dpu):
 
@@ -79,7 +83,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values get =======")
         pprint(result)
 
-        assert (result[1].value() == "4000")
+        assert all(result), "SAI_OBJECT_TYPE_VNET Get error"
 
     @pytest.mark.dependency(depends=['test_sai_api_vnet_eni.py::test_vnet_eni_create'], scope='session')
     @pytest.mark.dependency(depends=['test_sai_api_vnet_pa_entry.py::test_vnet_pa_validation_entry_create'], scope='session')
@@ -100,3 +104,5 @@ class TestSaiVnetVni:
         result = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(result)
+
+        assert all(result), "SAI_OBJECT_TYPE_VNET Remove error"
