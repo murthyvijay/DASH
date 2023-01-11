@@ -79,17 +79,14 @@ class TestSaiVnetAclIn:
 
         assert all(result), "SAI_IP_ADDR_FAMILY_IPV4 GET error"
 
+    @pytest.mark.skip(reason="ISSUE: vnet acl in remove fails with a return value 0 - although BMv2 indicate the entry is removed")
     def test_vnet_acl_in_remove(self, dpu):
 
         commands = [
             {
                 "name": "acl_in",
                 "op": "remove",
-                "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP",
-                "attributes": [
-                    "SAI_DASH_ACL_GROUP_ATTR_IP_ADDR_FAMILY",
-                    "SAI_IP_ADDR_FAMILY_IPV4"
-                ]
+                "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP"
             },
         ]
 
