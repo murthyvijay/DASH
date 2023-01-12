@@ -74,11 +74,11 @@ class TestSaiVnetEni:
                 ]
             },
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_ENI Create error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_get1(self, dpu):
@@ -91,11 +91,11 @@ class TestSaiVnetEni:
                 "atrribute": "SAI_ENI_ATTR_VM_UNDERLAY_DIP"
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values get =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "10.10.2.10"
+        assert all( [result == 0 for result in results]), "10.10.2.10"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_set(self, dpu):
@@ -112,11 +112,11 @@ class TestSaiVnetEni:
                 ]
             },
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values set =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_ENI Set error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI Set error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_get2(self, dpu):
@@ -130,11 +130,11 @@ class TestSaiVnetEni:
 
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values get =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "20.10.2.10"
+        assert all( [result == 0 for result in results]), "20.10.2.10"
 
     @pytest.mark.dependency(depends=['test_sai_api_vnet_in_route.py::test_vnet_inbound_routing_entry_remove'], scope='session')
     def test_vnet_eni_remove(self, dpu):
@@ -147,8 +147,8 @@ class TestSaiVnetEni:
             },
         ]
 
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_ENI Remove error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI Remove error"

@@ -30,11 +30,11 @@ class TestSaiVnetVni:
                 ]
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY Create error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_pa_validation_entry_get1(self, dpu):
@@ -47,11 +47,11 @@ class TestSaiVnetVni:
                 "attribute": "SAI_PA_VALIDATION_ENTRY_ATTR_ACTION"
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values get =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_PA_VALIDATION_ENTRY_ACTION_PERMIT Get error"
+        assert all( [result == 0 for result in results]), "SAI_PA_VALIDATION_ENTRY_ACTION_PERMIT Get error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_pa_validation_entry_set(self, dpu):
@@ -72,11 +72,11 @@ class TestSaiVnetVni:
                 ]
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values set =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY Set error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY Set error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_pa_validation_entry_get2(self, dpu):
@@ -89,11 +89,11 @@ class TestSaiVnetVni:
                 "attribute": "SAI_PA_VALIDATION_ENTRY_ATTR_ACTION"
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values get =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_PA_VALIDATION_ENTRY_ACTION_DENY Get error"
+        assert all( [result == 0 for result in results]), "SAI_PA_VALIDATION_ENTRY_ACTION_DENY Get error"
 
     @pytest.mark.dependency(depends=['test_vnet_pa_validation_entry_create'], scope='session')
     def test_vnet_pa_validation_entry_remove(self, dpu):
@@ -115,8 +115,8 @@ class TestSaiVnetVni:
             }
         ]
 
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_PA_VALIDATION_ENTRY_ACTION_DENY Get error"
+        assert all( [result == 0 for result in results]), "SAI_PA_VALIDATION_ENTRY_ACTION_DENY Get error"

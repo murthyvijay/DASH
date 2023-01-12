@@ -21,11 +21,11 @@ class TestSaiVnetAclOut:
                 ]
             },
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_IP_ADDR_FAMILY_IPV4 Create error"
+        assert all( [result == 0 for result in results]), "SAI_IP_ADDR_FAMILY_IPV4 Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_acl_out_get1(self, dpu):
@@ -37,11 +37,11 @@ class TestSaiVnetAclOut:
                 "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP"
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values get =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_IP_ADDR_FAMILY_IPV4 GET error"
+        assert all( [result == 0 for result in results]), "SAI_IP_ADDR_FAMILY_IPV4 GET error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_acl_out_set(self, dpu):
@@ -57,11 +57,11 @@ class TestSaiVnetAclOut:
                 ]
             },
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values set =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_IP_ADDR_FAMILY_IPV4 Set error"
+        assert all( [result == 0 for result in results]), "SAI_IP_ADDR_FAMILY_IPV4 Set error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_acl_out_get2(self, dpu):
@@ -73,11 +73,11 @@ class TestSaiVnetAclOut:
                 "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP"
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values get =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_IP_ADDR_FAMILY_IPV4 GET error"
+        assert all( [result == 0 for result in results]), "SAI_IP_ADDR_FAMILY_IPV4 GET error"
 
     @pytest.mark.skip(reason="ISSUE: vnet acl out remove fails with a return value 0 - although BMv2 indicate the entry is removed")
     def test_vnet_acl_out_remove(self, dpu):
@@ -90,8 +90,8 @@ class TestSaiVnetAclOut:
             },
         ]
 
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_IP_ADDR_FAMILY_IPV4 Remove error"
+        assert all( [result == 0 for result in results]), "SAI_IP_ADDR_FAMILY_IPV4 Remove error"

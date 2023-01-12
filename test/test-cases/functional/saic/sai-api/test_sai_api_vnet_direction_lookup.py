@@ -28,11 +28,11 @@ class TestSaiDirectionLookup:
                 ]
             },
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY Create error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_direction_lookup_get1(self, dpu):
@@ -44,11 +44,11 @@ class TestSaiDirectionLookup:
                 "type": "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY"
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values get =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "2000"
+        assert all( [result == 0 for result in results]), "2000"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_direction_lookup_set(self, dpu):
@@ -69,11 +69,11 @@ class TestSaiDirectionLookup:
             },
         ]
 
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values set =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY Set error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY Set error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_direction_lookup_get2(self, dpu):
@@ -85,11 +85,11 @@ class TestSaiDirectionLookup:
                 "type": "SAI_OBJECT_TYPE_VIP_ENTRY"
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values get =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "4000"
+        assert all( [result == 0 for result in results]), "4000"
 
     @pytest.mark.skip(reason="ISSUE: vnet direction lookup remove fails with a return value 0 - although BMv2 indicate the entry is removed")
     def test_direction_lookup_remove(self, dpu):
@@ -102,8 +102,8 @@ class TestSaiDirectionLookup:
             },
         ]
 
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY Remove error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY Remove error"

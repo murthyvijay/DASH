@@ -27,11 +27,11 @@ class TestSaiVnetInbound:
                 ]
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_VIP_ENTRY Create error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VIP_ENTRY Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_simple_get1(self, dpu):
@@ -44,11 +44,11 @@ class TestSaiVnetInbound:
                 "attribute": "SAI_VIP_ENTRY_ATTR_ACTION"
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values get =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_VIP_ENTRY_ACTION_ACCEPT"
+        assert all( [result == 0 for result in results]), "SAI_VIP_ENTRY_ACTION_ACCEPT"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_simple_set(self, dpu):
@@ -67,11 +67,11 @@ class TestSaiVnetInbound:
                 ]
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values set =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_VIP_ENTRY Set error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VIP_ENTRY Set error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_simple_get2(self, dpu):
@@ -84,11 +84,11 @@ class TestSaiVnetInbound:
                 "attribute": "SAI_VIP_ENTRY_ATTR_ACTION"
             }
         ]
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values get =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_VIP_ENTRY_ACTION_REJECT"
+        assert all( [result == 0 for result in results]), "SAI_VIP_ENTRY_ACTION_REJECT"
 
     def test_vnet_inbound_simple_remove(self, dpu):
 
@@ -107,8 +107,8 @@ class TestSaiVnetInbound:
             }
         ]
 
-        result = [*dpu.process_commands(commands)]
+        results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
-        pprint(result)
+        pprint(results)
 
-        assert all(result), "SAI_OBJECT_TYPE_VIP_ENTRY Remove error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VIP_ENTRY Remove error"
