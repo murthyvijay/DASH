@@ -38,7 +38,7 @@ class TestSaiVnetInbound:
 
         commands = [
             {
-                "name": "$vpe",
+                "name": "vpe",
                 "op": "get",
                 "type": "SAI_OBJECT_TYPE_VIP_ENTRY",
                 "attribute": "SAI_VIP_ENTRY_ATTR_ACTION"
@@ -55,7 +55,7 @@ class TestSaiVnetInbound:
 
         commands = [
             {
-                "name": "$vpe",
+                "name": "vpe",
                 "op": "set",
                 "type": "SAI_OBJECT_TYPE_VIP_ENTRY",
                 "key": {
@@ -78,7 +78,7 @@ class TestSaiVnetInbound:
 
         commands = [
             {
-                "name": "$vpe",
+                "name": "vpe",
                 "op": "get",
                 "type": "SAI_OBJECT_TYPE_VIP_ENTRY",
                 "attribute": "SAI_VIP_ENTRY_ATTR_ACTION"

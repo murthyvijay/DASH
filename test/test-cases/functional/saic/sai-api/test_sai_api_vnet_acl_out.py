@@ -32,7 +32,7 @@ class TestSaiVnetAclOut:
 
         commands = [
             {
-                "name": "$acl_out",
+                "name": "acl_out",
                 "op": "get",
                 "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP"
             }
@@ -48,7 +48,7 @@ class TestSaiVnetAclOut:
 
         commands = [
             {
-                "name": "$acl_out",
+                "name": "acl_out",
                 "op": "set",
                 "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP",
                 "attributes": [
@@ -68,7 +68,7 @@ class TestSaiVnetAclOut:
 
         commands = [
             {
-                "name": "$acl_out",
+                "name": "acl_out",
                 "op": "get",
                 "type": "SAI_OBJECT_TYPE_DASH_ACL_GROUP"
             }

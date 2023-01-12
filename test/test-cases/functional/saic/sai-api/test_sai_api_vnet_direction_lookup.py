@@ -39,7 +39,7 @@ class TestSaiDirectionLookup:
 
         commands = [
             {
-                "name": "$vpe",
+                "name": "direction_lookup_entry",
                 "op": "get",
                 "type": "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY"
             }
@@ -55,7 +55,7 @@ class TestSaiDirectionLookup:
 
         commands = [
             {
-                "name": "$vpe",
+                "name": "direction_lookup_entry",
                 "op": "set",
                 "type": "SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY",
                 "key": {
@@ -80,7 +80,7 @@ class TestSaiDirectionLookup:
 
         commands = [
             {
-                "name": "$vpe",
+                "name": "direction_lookup_entry",
                 "op": "get",
                 "type": "SAI_OBJECT_TYPE_VIP_ENTRY"
             }

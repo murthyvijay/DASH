@@ -39,7 +39,7 @@ class TestSaiVnetVni:
 
         commands = [
             {
-                "name": "$eni_ether_address_map_entry",
+                "name": "eni_ether_address_map_entry",
                 "op": "get",
                 "type": "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY"
             }
@@ -79,9 +79,9 @@ class TestSaiVnetVni:
 
         commands = [
             {
-                "name": "$vnet",
+                "name": "eni_ether_address_map_entry",
                 "op": "get",
-                "type": "SAI_OBJECT_TYPE_VNET"
+                "type": "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY"
             }
         ]
         results = [*dpu.process_commands(commands)]

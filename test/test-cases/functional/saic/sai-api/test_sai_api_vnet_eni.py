@@ -85,7 +85,7 @@ class TestSaiVnetEni:
 
         commands = [
             {
-                "name": "$eni_id",
+                "name": "eni_id",
                 "op": "get",
                 "type": "SAI_OBJECT_TYPE_ENI",
                 "atrribute": "SAI_ENI_ATTR_VM_UNDERLAY_DIP"
@@ -102,7 +102,7 @@ class TestSaiVnetEni:
 
         commands = [
             {
-                "name": "$eni_id",
+                "name": "eni_id",
                 "op": "set",
                 "type": "SAI_OBJECT_TYPE_ENI",
                 "attribute": [
@@ -123,7 +123,7 @@ class TestSaiVnetEni:
 
         commands = [
             {
-                "name": "$eni_id",
+                "name": "eni_id",
                 "op": "get",
                 "type": "SAI_OBJECT_TYPE_ENI",
                 "atrribute": "SAI_ENI_ATTR_VM_UNDERLAY_DIP"

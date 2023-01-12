@@ -91,7 +91,7 @@ class TestSaiVnetInboundRoutingEntry:
 
         commands = [
             {
-                "name": "$vnet",
+                "name": "inbound_routing_entry",
                 "op": "get",
                 "type": "SAI_OBJECT_TYPE_VNET",
                 "attribute": "SAI_INBOUND_ROUTING_ENTRY_ATTR_ACTION"
