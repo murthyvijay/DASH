@@ -25,7 +25,7 @@ class TestSaiVnetAclIn:
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "SAI_IP_ADDR_FAMILY_IPV4 Create error"
+        assert all(results), "SAI_IP_ADDR_FAMILY_IPV4 Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_acl_in_get1(self, dpu):
@@ -79,7 +79,6 @@ class TestSaiVnetAclIn:
 
         assert all( [result == 0 for result in results]), "SAI_IP_ADDR_FAMILY_IPV4 GET error"
 
-    @pytest.mark.skip(reason="ISSUE: vnet acl in remove fails with a return value 0 - although BMv2 indicate the entry is removed")
     def test_vnet_acl_in_remove(self, dpu):
 
         commands = [

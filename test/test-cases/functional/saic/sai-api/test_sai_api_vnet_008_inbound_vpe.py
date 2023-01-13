@@ -31,7 +31,7 @@ class TestSaiVnetInbound:
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VIP_ENTRY Create error"
+        assert all(results), "SAI_OBJECT_TYPE_VIP_ENTRY Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_simple_get1(self, dpu):
@@ -97,13 +97,6 @@ class TestSaiVnetInbound:
                 "name": "vpe",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_VIP_ENTRY",
-                "key": {
-                    "switch_id": "$SWITCH_ID",
-                    "vip": "2.2.2.2"
-                },
-                "attributes": [
-                    "SAI_VIP_ENTRY_ATTR_ACTION", "SAI_VIP_ENTRY_ACTION_ACCEPT"
-                ]
             }
         ]
 

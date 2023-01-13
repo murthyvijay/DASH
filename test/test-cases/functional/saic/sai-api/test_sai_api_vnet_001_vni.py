@@ -26,8 +26,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all([result == 0 for result in results]
-                   ), "SAI_OBJECT_TYPE_VNET Create error"
+        assert all(results), "SAI_OBJECT_TYPE_VNET Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_vni_get1(self, dpu):
@@ -45,8 +44,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values get =======")
         pprint(results)
 
-        assert all([result == 0 for result in results]
-                   ), "SAI_OBJECT_TYPE_VNET Get error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VNET Get error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_vni_set(self, dpu):
@@ -67,8 +65,7 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values set =======")
         pprint(results)
 
-        assert all([result == 0 for result in results]
-                   ), "SAI_OBJECT_TYPE_VNET Set error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VNET Set error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_vni_get2(self, dpu):
@@ -86,12 +83,11 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values get =======")
         pprint(results)
 
-        assert all([result == 0 for result in results]
-                   ), "SAI_OBJECT_TYPE_VNET Get error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VNET Get error"
 
-    @pytest.mark.skip(reason="ISSUE: vnet vni remove fails with a return value 0 - although BMv2 indicate the entry is removed")
-    @pytest.mark.dependency(depends=['test_sai_api_vnet_eni.py::test_vnet_eni_create'], scope='session')
-    @pytest.mark.dependency(depends=['test_sai_api_vnet_pa_entry.py::test_vnet_pa_validation_entry_create'], scope='session')
+    @pytest.mark.dependency(depends=['test_sai_api_vnet_002_eni.py::test_vnet_eni_create'], scope='session')
+    @pytest.mark.dependency(depends=['test_sai_api_vnet_009_out_route.py::test_vnet_outbound_routing_entry_create'], scope='session')
+    @pytest.mark.dependency(depends=['test_sai_api_vnet_010_pa_entry.py::test_vnet_pa_validation_entry_create'], scope='session')
     def test_vnet_vni_remove(self, dpu):
 
         commands = [
@@ -106,5 +102,4 @@ class TestSaiVnetVni:
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all([result == 0 for result in results]
-                   ), "SAI_OBJECT_TYPE_VNET Remove error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VNET Remove error"

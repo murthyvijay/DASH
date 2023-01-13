@@ -20,7 +20,7 @@ class TestSaiVnetVni:
                 "type": "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY",
                 "key": {
                     "switch_id": "$SWITCH_ID",
-                    "address": "00:AA:AA:AA:AA:00"
+                    "address": "00:AA:AA:AA:AB:00"
                 },
                 "attributes": [
                     "SAI_ENI_ETHER_ADDRESS_MAP_ENTRY_ATTR_ENI_ID",
@@ -31,8 +31,8 @@ class TestSaiVnetVni:
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
-        
-        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY Create error"
+
+        assert all(results), "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_ether_address_get1(self, dpu):
@@ -71,7 +71,7 @@ class TestSaiVnetVni:
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values set =======")
         pprint(results)
-        
+
         assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY Set error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
@@ -97,19 +97,11 @@ class TestSaiVnetVni:
                 "name": "eni_ether_address_map_entry",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY",
-                "key": {
-                    "switch_id": "$SWITCH_ID",
-                    "address": "00:AA:AA:AA:BB:00"
-                },
-                "attributes": [
-                    "SAI_ENI_ETHER_ADDRESS_MAP_ENTRY_ATTR_ENI_ID",
-                    "$eni_id"
-                ]
             },
         ]
 
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
-        
+
         assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY Remove error"

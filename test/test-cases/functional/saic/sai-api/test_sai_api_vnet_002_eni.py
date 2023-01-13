@@ -8,7 +8,6 @@ import pytest
 
 class TestSaiVnetEni:
 
-    @pytest.mark.dependency(depends=['test_sai_api_vnet_vni.py::test_vnet_vni_create'], scope='session')
     def test_vnet_eni_create(self, dpu):
 
         commands = [
@@ -78,7 +77,7 @@ class TestSaiVnetEni:
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI Create error"
+        assert all(results), "SAI_OBJECT_TYPE_ENI Create error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_get1(self, dpu):
@@ -136,7 +135,7 @@ class TestSaiVnetEni:
 
         assert all( [result == 0 for result in results]), "20.10.2.10"
 
-    @pytest.mark.dependency(depends=['test_sai_api_vnet_in_route.py::test_vnet_inbound_routing_entry_remove'], scope='session')
+    @pytest.mark.dependency(depends=['test_sai_api_vnet_007_in_route.py::test_vnet_inbound_routing_entry_create'], scope='session')
     def test_vnet_eni_remove(self, dpu):
 
         commands = [
