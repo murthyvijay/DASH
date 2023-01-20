@@ -13,6 +13,24 @@ class TestSaiVnetVni:
 
     def test_vnet_pa_validation_entry_create(self, dpu):
 
+        # Create VNET
+        commands = [
+            {
+                "name": "vnet",
+                "op": "create",
+                "type": "SAI_OBJECT_TYPE_VNET",
+                "attributes": [
+                    "SAI_VNET_ATTR_VNI",
+                    "7000"
+                ]
+            },
+        ]
+        results = [*dpu.process_commands(commands)]
+        print("\n======= SAI commands RETURN values create =======")
+        pprint(results)
+
+        assert all(results), "SAI_OBJECT_TYPE_VNET Create error"
+        
         commands = [
             {
                 "name": "pa_validation_entry",
@@ -109,3 +127,18 @@ class TestSaiVnetVni:
         pprint(results)
 
         assert all([result == 0 for result in results]), "SAI_PA_VALIDATION_ENTRY_ACTION_DENY Get error"
+        
+        commands = [
+            {
+                "name": "vnet",
+                "op": "remove",
+                "type": "SAI_OBJECT_TYPE_VNET"
+            },
+        ]
+
+        results = [*dpu.process_commands(commands)]
+        print("\n======= SAI commands RETURN values remove =======")
+        pprint(results)
+
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VNET Remove error"
+

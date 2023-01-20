@@ -12,6 +12,23 @@ class TestSaiVnetEni:
 
         commands = [
             {
+                "name": "vnet",
+                "op": "create",
+                "type": "SAI_OBJECT_TYPE_VNET",
+                "attributes": [
+                    "SAI_VNET_ATTR_VNI",
+                    "2001"
+                ]
+            },
+        ]
+        results = [*dpu.process_commands(commands)]
+        print("\n======= SAI commands RETURN values create =======")
+        pprint(results)
+
+        assert all(results), "SAI_OBJECT_TYPE_VNET Create error"
+        
+        commands = [
+            {
                 "name": "eni_id",
                 "op": "create",
                 "type": "SAI_OBJECT_TYPE_ENI",
@@ -25,7 +42,7 @@ class TestSaiVnetEni:
                     "SAI_ENI_ATTR_ADMIN_STATE",
                     "True",
                     "SAI_ENI_ATTR_VM_UNDERLAY_DIP",
-                    "10.10.2.10",
+                    "10.10.1.10",
                     "SAI_ENI_ATTR_VM_VNI",
                     "9",
                     "SAI_ENI_ATTR_VNET_ID",
@@ -135,7 +152,7 @@ class TestSaiVnetEni:
 
         assert all( [result == 0 for result in results]), "20.10.2.10"
 
-    @pytest.mark.dependency(depends=['test_sai_api_vnet_007_in_route.py::test_vnet_inbound_routing_entry_create'], scope='session')
+    #@pytest.mark.dependency(depends=['test_sai_api_vnet_007_in_route.py::test_vnet_inbound_routing_entry_create'], scope='session')
     def test_vnet_eni_remove(self, dpu):
 
         commands = [
@@ -151,3 +168,17 @@ class TestSaiVnetEni:
         pprint(results)
 
         assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI Remove error"
+        
+        commands = [
+            {
+                "name": "vnet",
+                "op": "remove",
+                "type": "SAI_OBJECT_TYPE_VNET"
+            },
+        ]
+
+        results = [*dpu.process_commands(commands)]
+        print("\n======= SAI commands RETURN values remove =======")
+        pprint(results)
+
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VNET Remove error"
