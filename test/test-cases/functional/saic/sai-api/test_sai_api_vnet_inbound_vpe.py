@@ -48,7 +48,7 @@ class TestSaiVnetInbound:
         print("\n======= SAI commands RETURN values get =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "SAI_VIP_ENTRY_ACTION_ACCEPT"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VIP_ENTRY Get error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_inbound_simple_set(self, dpu):
@@ -88,7 +88,7 @@ class TestSaiVnetInbound:
         print("\n======= SAI commands RETURN values get =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "SAI_VIP_ENTRY_ACTION_REJECT"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_VIP_ENTRY Get error"
 
     def test_vnet_inbound_simple_remove(self, dpu):
 

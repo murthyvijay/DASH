@@ -111,7 +111,7 @@ class TestSaiVnetEni:
         print("\n======= SAI commands RETURN values get =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "10.10.2.10"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI Get error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_set(self, dpu):
@@ -150,7 +150,7 @@ class TestSaiVnetEni:
         print("\n======= SAI commands RETURN values get =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "20.10.2.10"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI Get error"
 
     def test_vnet_eni_remove(self, dpu):
 

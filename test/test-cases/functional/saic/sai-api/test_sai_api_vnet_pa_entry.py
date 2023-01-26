@@ -126,7 +126,7 @@ class TestSaiVnetPaEntry:
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all([result == 0 for result in results]), "SAI_PA_VALIDATION_ENTRY_ACTION_DENY Get error"
+        assert all([result == 0 for result in results]), "SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY Remove error"
         
         commands = [
             {
