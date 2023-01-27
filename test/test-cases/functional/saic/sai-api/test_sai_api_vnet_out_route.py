@@ -137,7 +137,7 @@ class TestSaiVnetOutboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET Get error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_OUTBOUND_ROUTING_ENTRY Get error"
 
     @ pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_outbound_routing_entry_set(self, dpu):
@@ -162,7 +162,7 @@ class TestSaiVnetOutboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
         
-        assert all( [result == 0 for result in results]), "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET Set error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_OUTBOUND_ROUTING_ENTRY Set error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_outbound_routing_entry_get2(self, dpu):
@@ -178,7 +178,7 @@ class TestSaiVnetOutboundRoutingEntry:
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "SAI_OUTBOUND_ROUTING_ENTRY_ACTION_ROUTE_VNET Get error"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_OUTBOUND_ROUTING_ENTRY Get error"
 
     def test_vnet_outbound_routing_entry_remove(self, dpu):
 
