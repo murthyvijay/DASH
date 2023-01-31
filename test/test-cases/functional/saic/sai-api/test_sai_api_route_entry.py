@@ -5,37 +5,35 @@ from pprint import pprint
 
 import pytest
 
-HOSTIF_OBJID = 1
 
+class TestSaiRouteEntry:
 
-class TestSaiSwitchPortConnector:
-
-    def test_switch_port_connector_create(self, dpu):
+    def test_route_entry_create(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "create",
-                "type": "SAI_OBJECT_TYPE_PORT_CONNECTOR",
+                "type": "SAI_OBJECT_TYPE_ROUTE_ENTRY",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_PORT_CONNECTOR Create error"
+        assert all(results), "SAI_OBJECT_TYPE_ROUTE_ENTRY Create error"
 
-    def test_switch_port_connector_remove(self, dpu):
+    def test_route_entry_remove(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "remove",
-                "type": "SAI_OBJECT_TYPE_PORT_CONNECTOR",
+                "type": "SAI_OBJECT_TYPE_ROUTE_ENTRY",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_PORT_CONNECTOR Remove error"
+        assert all(results), "SAI_OBJECT_TYPE_ROUTE_ENTRY Remove error"

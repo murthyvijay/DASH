@@ -6,38 +6,34 @@ from pprint import pprint
 import pytest
 
 
-class TestSaiHostIf:
+class TestSaiNextHop:
 
-    def test_host_interface_create(self, dpu):
+    def test_next_hop_create(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "create",
-                "type": "SAI_OBJECT_TYPE_HOSTIF",
-                "attributes": [
-                    "SAI_HOSTIF_ATTR_NAME",
-                    "sai_hostif",   
-                ]
+                "type": "SAI_OBJECT_TYPE_NEXT_HOP",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_HOSTIF Create error"
-        
-    def test_host_interface_remove(self, dpu):
+        assert all(results), "SAI_OBJECT_TYPE_NEXT_HOP Create error"
+
+    def test_next_hop_remove(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "remove",
-                "type": "SAI_OBJECT_TYPE_HOSTIF",
+                "type": "SAI_OBJECT_TYPE_NEXT_HOP",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_HOSTIF Remove error"
+        assert all(results), "SAI_OBJECT_TYPE_NEXT_HOP Remove error"

@@ -5,37 +5,35 @@ from pprint import pprint
 
 import pytest
 
-HOSTIF_OBJID = 1
 
+class TestSaiPort:
 
-class TestSaiQosMap:
-
-    def test_qos_map_create(self, dpu):
+    def test_port_create(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "create",
-                "type": "SAI_OBJECT_TYPE_QOS_MAP",
+                "type": "SAI_OBJECT_TYPE_PORT",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_QOS_MAP Create error"
+        assert all(results), "SAI_OBJECT_TYPE_PORT Create error"
 
-    def test_qos_map_remove(self, dpu):
+    def test_port_remove(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "remove",
-                "type": "SAI_OBJECT_TYPE_QOS_MAP",
+                "type": "SAI_OBJECT_TYPE_PORT",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_QOS_MAP Remove error"
+        assert all(results), "SAI_OBJECT_TYPE_PORT Remove error"

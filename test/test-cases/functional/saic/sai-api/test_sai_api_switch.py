@@ -5,37 +5,35 @@ from pprint import pprint
 
 import pytest
 
-HOSTIF_OBJID = 1
 
+class TestSaiSwitch:
 
-class TestSaiTunnelMap:
-
-    def test_tunnel_map_create(self, dpu):
+    def test_switch_create(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "create",
-                "type": "SAI_OBJECT_TYPE_TUNNEL_MAP",
+                "type": "SAI_OBJECT_TYPE_SWITCH",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_TUNNEL_MAP Create error"
+        assert all(results), "SAI_OBJECT_TYPE_SWITCH Create error"
 
-    def test_tunnel_map_remove(self, dpu):
+    def test_switch_remove(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "remove",
-                "type": "SAI_OBJECT_TYPE_TUNNEL_MAP",
+                "type": "SAI_OBJECT_TYPE_SWITCH",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_TUNNEL_MAP Remove error"
+        assert all(results), "SAI_OBJECT_TYPE_SWITCH Remove error"

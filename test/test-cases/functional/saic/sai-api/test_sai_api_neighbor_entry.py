@@ -5,37 +5,35 @@ from pprint import pprint
 
 import pytest
 
-HOSTIF_OBJID = 1
 
+class TestSaiNeighborEntry:
 
-class TestSaiMacsec:
-
-    def test_macsec_create(self, dpu):
+    def test_neighbor_entry_create(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "create",
-                "type": "SAI_OBJECT_TYPE_MACSEC",
+                "type": "SAI_OBJECT_TYPE_NEIGHBOR_ENTRY",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_MACSEC Create error"
+        assert all(results), "SAI_OBJECT_TYPE_NEIGHBOR_ENTRY Create error"
 
-    def test_macsec_remove(self, dpu):
+    def test_neighbor_entry_remove(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "remove",
-                "type": "SAI_OBJECT_TYPE_MACSEC",
+                "type": "SAI_OBJECT_TYPE_NEIGHBOR_ENTRY",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_MACSEC Remove error"
+        assert all(results), "SAI_OBJECT_TYPE_NEIGHBOR_ENTRY Remove error"

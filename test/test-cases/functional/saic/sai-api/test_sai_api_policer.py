@@ -5,37 +5,35 @@ from pprint import pprint
 
 import pytest
 
-HOSTIF_OBJID = 1
 
+class TestSaiPolicer:
 
-class TestSaiSystemPort:
-
-    def test_system_port_create(self, dpu):
+    def test_policer_create(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "create",
-                "type": "SAI_OBJECT_TYPE_SYSTEM_PORT",
+                "type": "SAI_OBJECT_TYPE_POLICER",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_SYSTEM_PORT Create error"
+        assert all(results), "SAI_OBJECT_TYPE_POLICER Create error"
 
-    def test_system_port_remove(self, dpu):
+    def test_policer_remove(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "remove",
-                "type": "SAI_OBJECT_TYPE_SYSTEM_PORT",
+                "type": "SAI_OBJECT_TYPE_POLICER",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_SYSTEM_PORT Remove error"
+        assert all(results), "SAI_OBJECT_TYPE_POLICER Remove error"

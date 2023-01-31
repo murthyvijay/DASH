@@ -8,34 +8,34 @@ import pytest
 HOSTIF_OBJID = 1
 
 
-class TestSaiSwitchPort:
+class TestSaiRouterInterface:
 
-    def test_switch_port_create(self, dpu):
+    def test_router_interface_create(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "create",
-                "type": "SAI_OBJECT_TYPE_PORT",
+                "type": "SAI_OBJECT_TYPE_ROUTER_INTERFACE",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_PORT Create error"
-
-    def test_switch_port_remove(self, dpu):
+        assert all(results), "SAI_OBJECT_TYPE_ROUTER_INTERFACE Create error"
+        
+    def test_router_interface_remove(self, dpu):
 
         commands = [
             {
                 "name": "host_interface",
                 "op": "remove",
-                "type": "SAI_OBJECT_TYPE_PORT",
+                "type": "SAI_OBJECT_TYPE_ROUTER_INTERFACE",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_PORT Remove error"
+        assert all(results), "SAI_OBJECT_TYPE_ROUTER_INTERFACE Remove error"
