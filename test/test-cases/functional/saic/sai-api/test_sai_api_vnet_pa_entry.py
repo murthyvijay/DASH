@@ -68,7 +68,7 @@ class TestSaiVnetPaEntry:
         print("\n======= SAI commands RETURN values get =======")
         pprint(results)
 
-        assert all([result == 0 for result in results]), "SAI_PA_VALIDATION_ENTRY_ACTION_PERMIT Get error"
+        assert all([result == 0 for result in results]), "SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY Get error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_pa_validation_entry_set(self, dpu):
@@ -110,7 +110,7 @@ class TestSaiVnetPaEntry:
         print("\n======= SAI commands RETURN values get =======")
         pprint(results)
 
-        assert all([result == 0 for result in results]), "SAI_PA_VALIDATION_ENTRY_ACTION_DENY Get error"
+        assert all([result == 0 for result in results]), "SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY Get error"
 
     def test_vnet_pa_validation_entry_remove(self, dpu):
 
@@ -126,7 +126,7 @@ class TestSaiVnetPaEntry:
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all([result == 0 for result in results]), "SAI_PA_VALIDATION_ENTRY_ACTION_DENY Get error"
+        assert all([result == 0 for result in results]), "SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY Remove error"
         
         commands = [
             {

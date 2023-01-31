@@ -48,7 +48,7 @@ class TestSaiVnetEniAddr:
         print("\n======= SAI commands RETURN values get =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "eni_id"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY Get error"
 
     @pytest.mark.skip(reason="get and set not implemented, yet")
     def test_vnet_eni_ether_address_set(self, dpu):
@@ -88,7 +88,7 @@ class TestSaiVnetEniAddr:
         print("\n======= SAI commands RETURN values get =======")
         pprint(results)
 
-        assert all( [result == 0 for result in results]), "eni_id"
+        assert all( [result == 0 for result in results]), "SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY Get error"
 
     def test_vnet_eni_ether_address_remove(self, dpu):
 
