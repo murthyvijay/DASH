@@ -12,7 +12,7 @@ class TestSaiSwitch:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "switch",
                 "op": "create",
                 "type": "SAI_OBJECT_TYPE_SWITCH",
             },
@@ -27,7 +27,7 @@ class TestSaiSwitch:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "switch",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_SWITCH",
             },

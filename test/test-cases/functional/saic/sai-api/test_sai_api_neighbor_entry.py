@@ -12,7 +12,7 @@ class TestSaiNeighborEntry:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "neighbor_entry",
                 "op": "create",
                 "type": "SAI_OBJECT_TYPE_NEIGHBOR_ENTRY",
             },
@@ -27,7 +27,7 @@ class TestSaiNeighborEntry:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "neighbor_entry",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_NEIGHBOR_ENTRY",
             },

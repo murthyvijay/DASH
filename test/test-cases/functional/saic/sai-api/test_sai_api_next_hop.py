@@ -12,7 +12,7 @@ class TestSaiNextHop:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "next_hop",
                 "op": "create",
                 "type": "SAI_OBJECT_TYPE_NEXT_HOP",
             },
@@ -27,7 +27,7 @@ class TestSaiNextHop:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "next_hop",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_NEXT_HOP",
             },

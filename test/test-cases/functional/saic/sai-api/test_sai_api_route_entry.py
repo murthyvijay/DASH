@@ -12,7 +12,7 @@ class TestSaiRouteEntry:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "route_entry",
                 "op": "create",
                 "type": "SAI_OBJECT_TYPE_ROUTE_ENTRY",
             },
@@ -27,7 +27,7 @@ class TestSaiRouteEntry:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "route_entry",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_ROUTE_ENTRY",
             },

@@ -12,7 +12,7 @@ class TestSaiPolicer:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "policer",
                 "op": "create",
                 "type": "SAI_OBJECT_TYPE_POLICER",
             },
@@ -27,7 +27,7 @@ class TestSaiPolicer:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "policer",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_POLICER",
             },

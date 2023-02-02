@@ -5,37 +5,35 @@ from pprint import pprint
 
 import pytest
 
-HOSTIF_OBJID = 1
 
+class TestSaiNextHopGroup:
 
-class TestSaiRouterInterface:
-
-    def test_router_interface_create(self, dpu):
+    def test_next_hop_group_create(self, dpu):
 
         commands = [
             {
-                "name": "router_interface",
+                "name": "next_hop_group",
                 "op": "create",
-                "type": "SAI_OBJECT_TYPE_ROUTER_INTERFACE",
+                "type": "SAI_OBJECT_TYPE_NEXT_HOP_GROUP",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_ROUTER_INTERFACE Create error"
-        
-    def test_router_interface_remove(self, dpu):
+        assert all(results), "SAI_OBJECT_TYPE_NEXT_HOP_GROUP Create error"
+
+    def test_next_hop_group_remove(self, dpu):
 
         commands = [
             {
-                "name": "router_interface",
+                "name": "next_hop_group",
                 "op": "remove",
-                "type": "SAI_OBJECT_TYPE_ROUTER_INTERFACE",
+                "type": "SAI_OBJECT_TYPE_NEXT_HOP_GROUP",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_ROUTER_INTERFACE Remove error"
+        assert all(results), "SAI_OBJECT_TYPE_NEXT_HOP_GROUP Remove error"

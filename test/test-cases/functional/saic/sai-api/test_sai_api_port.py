@@ -12,7 +12,7 @@ class TestSaiPort:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "port",
                 "op": "create",
                 "type": "SAI_OBJECT_TYPE_PORT",
             },
@@ -27,7 +27,7 @@ class TestSaiPort:
 
         commands = [
             {
-                "name": "host_interface",
+                "name": "port",
                 "op": "remove",
                 "type": "SAI_OBJECT_TYPE_PORT",
             },
