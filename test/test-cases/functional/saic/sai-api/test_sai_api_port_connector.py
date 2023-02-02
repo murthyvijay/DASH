@@ -6,34 +6,34 @@ from pprint import pprint
 import pytest
 
 
-class TestSaiPortPool:
+class TestSaiPortConnector:
 
-    def test_port_pool_create(self, dpu):
+    def test_port_connector_create(self, dpu):
 
         commands = [
             {
-                "name": "port_pool",
+                "name": "port_connector",
                 "op": "create",
-                "type": "SAI_OBJECT_TYPE_PORT_POOL",
+                "type": "SAI_OBJECT_TYPE_PORT_CONNECTOR",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values create =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_PORT_POOL Create error"
+        assert all(results), "SAI_OBJECT_TYPE_PORT_CONNECTOR Create error"
 
-    def test_port_pool_remove(self, dpu):
+    def test_port_connector_remove(self, dpu):
 
         commands = [
             {
-                "name": "port_pool",
+                "name": "port_connector",
                 "op": "remove",
-                "type": "SAI_OBJECT_TYPE_PORT_POOL",
+                "type": "SAI_OBJECT_TYPE_PORT_CONNECTOR",
             },
         ]
         results = [*dpu.process_commands(commands)]
         print("\n======= SAI commands RETURN values remove =======")
         pprint(results)
 
-        assert all(results), "SAI_OBJECT_TYPE_PORT_POOL Remove error"
+        assert all(results), "SAI_OBJECT_TYPE_PORT_CONNECTOR Remove error"
